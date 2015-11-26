@@ -65,8 +65,8 @@
 				<label>Divisão</label>
 				<select name="fielddivisao"
 								class="min"
-								ng-model="divisao"
-								ng-options="item.divisao for item in divisoes"
+								ng-model="item.divisao"
+								ng-options="item.categoria as item.categoria for item in divisao"
 								required>
 								<option selected disabled value="">Divisão</option>
 				</select>
@@ -75,8 +75,6 @@
 			<button class="button">Cadastrar</button>
 		</form>
 	</div>
-
-
 	<table class="tableCad">
 		<tr class="title">
 			<td>Nome do Time</td>
@@ -110,23 +108,23 @@
 			<select name="field"
 							class="min"
 							ng-model="time.estado"
-							ng-options="estado.nome for estado in collEstados"
+							ng-options="item.nome as item.nome for item in collEstados"
+							required>
+			</select>
+			</td>
+			<td>
+			<select name="field"
+							ng-model="time.cidade"
+							ng-options="item as item for item in time.estado"
 							required>
 			</select>
 			</td>
 			<td>
 
 			<select name="field"
-							ng-model="time.cidade"
-							ng-options="cidade as cidade for cidade in time.estado.cidades"
-							required>
-			</select>
-			</td>
-			<td>
-			<select name="fielddivisao"
 							class="min"
 							ng-model="time.divisao"
-							ng-options="divisao.categoria for divisao in divisoes"
+							ng-options="item.categoria as item.categoria for item in divisao"
 							required>
 			</select>
 			</td>
@@ -157,7 +155,7 @@
 
 <!-- JS -->
 <link href='http://fonts.googleapis.com/css?family=Alef:400,700' rel='stylesheet' type='text/css'>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js" charset="utf-8"></script>
 <script src="_js/main.js"></script>
 <script src="_js/times.js"></script>
 

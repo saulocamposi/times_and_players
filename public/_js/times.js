@@ -12,7 +12,7 @@ var timesCtrl = function($scope,$http,$log){
   }, onError);
 
   $http.get('_json/divisao.json').then(function(response){
-      $scope.divisoes = response.data;
+      $scope.divisao = response.data;
     },onError);
 
   var onSuccessTimesBd = function(response){
@@ -43,7 +43,7 @@ var onError = function(reason){
 }
 
   $scope.getTemplate = function (time) {
-    console.log(time);
+
     if (time.id === $scope.times.selected.id)
       return 'edit';
         else
@@ -52,6 +52,8 @@ var onError = function(reason){
 
   $scope.edit = function (time) {
        $scope.times.selected = angular.copy(time);
+       console.log("log saulera " + $scope.times.selected.cidade);
+       console.log("log saulera " + $scope.times.selected.divisao);
    };
 
    var onSuccessCreate = function(response){
@@ -71,7 +73,7 @@ var onError = function(reason){
        nome: $scope.time,
        estado: $scope.estado.nome,
        cidade: $scope.cidade,
-       divisao : $scope.divisao.divisao
+       divisao : $scope.item.divisao
      }
      $http.post("times", json).then(onSuccessCreate);
    }
@@ -80,9 +82,9 @@ var onError = function(reason){
      var json = {
        id : time.id,
        nome: time.nome,
-       estado: time.estado.nome,
+       estado: time.estado,
        cidade: time.cidade,
-       divisao : time.divisao.categoria
+       divisao : time.divisao
      }
      $http.post("timeupdate", json).then(onSuccessUpdate);
      $scope.reset();
@@ -93,7 +95,7 @@ var onError = function(reason){
      };
 
     var onSuccessUpdate = function(response){
-      
+
     }
 
 

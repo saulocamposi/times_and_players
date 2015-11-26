@@ -17,7 +17,7 @@ CREATE TABLE `jogadors` (
 CREATE TABLE `times` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nome` varchar(50) COLLATE latin1_general_ci DEFAULT NULL,
-  `estado` varchar(10) COLLATE latin1_general_ci DEFAULT NULL,
+  `estado` varchar(40) COLLATE latin1_general_ci DEFAULT NULL,
   `cidade` varchar(30) COLLATE latin1_general_ci DEFAULT NULL,
   `divisao` varchar(10) COLLATE latin1_general_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
