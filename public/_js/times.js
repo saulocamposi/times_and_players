@@ -77,14 +77,12 @@ var onError = function(reason){
    }
 
    $scope.update = function(time){
-
-     alert(time);
      var json = {
        id : time.id,
        nome: time.nome,
        estado: time.estado.nome,
        cidade: time.cidade,
-       divisao : time.divisao.divisao
+       divisao : time.divisao.categoria
      }
      $http.post("timeupdate", json).then(onSuccessUpdate);
      $scope.reset();
@@ -95,7 +93,7 @@ var onError = function(reason){
      };
 
     var onSuccessUpdate = function(response){
-
+      
     }
 
 

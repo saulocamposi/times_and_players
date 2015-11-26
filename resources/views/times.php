@@ -126,7 +126,7 @@
 			<select name="fielddivisao"
 							class="min"
 							ng-model="time.divisao"
-							ng-options="item.divisao as item.divisao for item in divisoes"
+							ng-options="divisao.categoria for divisao in divisoes"
 							required>
 			</select>
 			</td>
